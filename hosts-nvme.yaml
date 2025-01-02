@@ -1,0 +1,15 @@
+- name: Add multiple entries to /etc/hosts
+  hosts: all
+  become: true
+  tasks:
+    - name: Add multiple entries to /etc/hosts
+      ansible.builtin.blockinfile:
+        path: /etc/hosts
+        marker: "# CEPH-HOST"
+        block: |
+          172.240.10.50   hcm01-cloudst-nvme01.fpt.net
+          172.240.10.51   hcm01-cloudst-nvme02.fpt.net
+          172.240.10.52   hcm01-cloudst-nvme03.fpt.net
+          172.240.10.53   hcm01-cloudst-nvme04.fpt.net
+          172.240.10.54   hcm01-cloudst-nvme05.fpt.net
+          172.240.10.55   hcm01-cloudst-nvme06.fpt.net
