@@ -7,9 +7,9 @@
         path: /etc/sysctl.conf
         block: |
           # Custom kernel parameters
-          	  fs.file-max = 1000000
-		  net.netfilter.nf_conntrack_tcp_timeout_established = 600
-	          net.nf_conntrack_max = 1048576
+          fs.file-max = 1000000
+	  net.netfilter.nf_conntrack_tcp_timeout_established = 600
+	  net.nf_conntrack_max = 1048576
 		  net.netfilter.nf_conntrack_max = 1048576
 		  kernel.pid_max = 4194303
 		  kernel.threads-max = 2097152
