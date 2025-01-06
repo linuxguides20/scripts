@@ -6,7 +6,7 @@
       ansible.builtin.blockinfile:
         path: /etc/sysctl.conf
         block: |
-          # Custom kernel parameters
+          #Custom kernel parameters
           fs.file-max = 1000000
 	  net.netfilter.nf_conntrack_tcp_timeout_established = 600
 	  net.nf_conntrack_max = 1048576
