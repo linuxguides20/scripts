@@ -1,6 +1,0 @@
-- name: Append .fpt.net to matching lines
-  ansible.builtin.lineinfile:
-    path: /etc/hosts
-    regexp: '^(127\.0\.1\.1\s+hcm02-rbd-ssd\.(0[1-9]|1[0-5]))$'
-    line: '\1.fpt.net'
-    backrefs: yes
