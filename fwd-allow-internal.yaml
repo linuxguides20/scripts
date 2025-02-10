@@ -5,5 +5,10 @@
     - name: Add source to internal zone
       ansible.posix.firewalld:
         source: 172.240.10.0/24
+        permanent: true
         zone: internal
         state: enabled
+    - name: Always reload firewalld
+      ansible.builtin.service:
+        name: firewalld
+        state: reloaded
