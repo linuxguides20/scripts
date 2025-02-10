@@ -1,6 +1,18 @@
-- name: Append text to lines starting with "my_string" and ending with numbers 01-15
-  ansible.builtin.lineinfile:
-    path: /etc/hosts
-    regexp: '^(127\.0\.1\.1\s+hcm01-rbd-ssd.[0-9])$'  # Match lines starting with "my_string" and ending with 01-15
-    line: '\1.fpt.net'  # Append "extra-text" at the end
-    backrefs: yes
+- name: Install firewalld on Ubuntu servers
+  hosts: all
+  become: true
+  tasks:
+    - name: Update APT package cache
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: Ensure firewalld is installed
+      ansible.builtin.apt:
+        name: firewalld
+        state: present
+
+    - name: Enable and start firewalld service
+      ansible.builtin.systemd:
+        name: firewalld
+        enabled: true
+        state: started
