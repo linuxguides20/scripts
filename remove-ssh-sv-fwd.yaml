@@ -1,11 +1,11 @@
-- name: Add source to internal zone firewalld
+- name: Remove service in fwd
   hosts: all
   become: true
   tasks:
-    - name: Add source to internal zone
+    - name: Remove service in fwd
       ansible.posix.firewalld:
         zone: public
-        service: http
+        service: ssh
         permanent: true
         state: disable
     - name: Always reload firewalld
