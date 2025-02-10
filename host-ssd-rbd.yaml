@@ -1,0 +1,24 @@
+- name: Add multiple entries to /etc/hosts
+  hosts: all
+  become: true
+  tasks:
+    - name: Add multiple entries to /etc/hosts
+      ansible.builtin.blockinfile:
+        path: /etc/hosts
+        marker: "# CEPH-HOST"
+        block: |
+        172.240.10.30	  hcm02-rbd-ssd01.fpt.net
+        172.240.10.31   hcm02-rbd-ssd02.fpt.net
+        172.240.10.32   hcm02-rbd-ssd03.fpt.net
+        172.240.10.33   hcm02-rbd-ssd04.fpt.net
+        172.240.10.34   hcm02-rbd-ssd05.fpt.net
+        172.240.10.35   hcm02-rbd-ssd06.fpt.net
+        172.240.10.36   hcm02-rbd-ssd07.fpt.net
+        172.240.10.37   hcm02-rbd-ssd08.fpt.net
+        172.240.10.38   hcm02-rbd-ssd09.fpt.net
+        172.240.10.39   hcm02-rbd-ssd10.fpt.net
+        172.240.10.40   hcm02-rbd-ssd11.fpt.net
+        172.240.10.41   hcm02-rbd-ssd12.fpt.net
+        172.240.10.42   hcm02-rbd-ssd13.fpt.net
+        172.240.10.43   hcm02-rbd-ssd14.fpt.net
+        172.240.10.44   hcm02-rbd-ssd15.fpt.net
