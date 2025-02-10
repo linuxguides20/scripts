@@ -5,6 +5,6 @@
       - name: Append fptnet to host file
         ansible.builtin.lineinfile:
           path: /etc/hosts
-          regexp: '^(127\.0\.1\.1\s+hcm02-rbd-ssd[0-15])$'  # Match lines starting with "my_string" and ending with 01-15
+          regexp: '^(127\.0\.1\.1\s+hcm01-rbd-ssd[0-15])$'  # Match lines starting with "my_string" and ending with 01-15
           line: '\1.fpt.net'  # Append "extra-text" at the end
           backrefs: yes
