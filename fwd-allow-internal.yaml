@@ -1,0 +1,4 @@
+- ansible.posix.firewalld:
+    source: 172.240.10.0/24
+    zone: internal
+    state: enabled
