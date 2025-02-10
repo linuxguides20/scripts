@@ -1,6 +1,0 @@
-- name: Append text to lines starting with "my_string" and ending with numbers 01-15
-  ansible.builtin.lineinfile:
-    path: /etc/hosts
-    regexp: '^(hcm01-rbd-ssd.*\s(0[1-9]|1[0-5]))$'  # Match lines starting with "my_string" and ending with 01-15
-    line: '\1.fpt.net'  # Append "extra-text" at the end
-    backrefs: yes
