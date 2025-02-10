@@ -7,7 +7,7 @@
         zone: public
         service: ssh
         permanent: true
-        state: disable
+        state: disabled
     - name: Always reload firewalld
       ansible.builtin.service:
         name: firewalld
