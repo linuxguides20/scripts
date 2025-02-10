@@ -1,4 +1,9 @@
-- ansible.posix.firewalld:
-    source: 172.240.10.0/24
-    zone: internal
-    state: enabled
+- name: Add source to internal zone firewalld
+  hosts: all
+  become: true
+  tasks:
+    - name: Add source to internal zone
+      ansible.posix.firewalld:
+        source: 172.240.10.0/24
+        zone: internal
+        state: enabled
