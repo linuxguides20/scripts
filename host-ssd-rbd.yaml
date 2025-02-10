@@ -7,7 +7,7 @@
         path: /etc/hosts
         marker: "# CEPH-HOST"
         block: |
-        172.240.10.30	  hcm02-rbd-ssd01.fpt.net
+        172.240.10.30   hcm02-rbd-ssd01.fpt.net
         172.240.10.31   hcm02-rbd-ssd02.fpt.net
         172.240.10.32   hcm02-rbd-ssd03.fpt.net
         172.240.10.33   hcm02-rbd-ssd04.fpt.net
