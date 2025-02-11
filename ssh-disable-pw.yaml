@@ -29,7 +29,7 @@
         user: ubuntu
         state: present
         key: "{{ lookup('file', '/home/ubuntu/ssh-tunnel-private.pub') }}"
-handlers:
-  - name: restart ssh
-    ansible.builtin.service:
+  handlers:
+    - name: restart ssh
+      ansible.builtin.service:
       name: sshd
