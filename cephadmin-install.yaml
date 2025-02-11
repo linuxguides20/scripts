@@ -3,7 +3,7 @@
   become: true
   tasks:
     - name: Set owner
-      ansible.builtin.command: chown ubuntu:ubuntu /home/ubunt/cephadm
+      ansible.builtin.command: chown ubuntu:ubuntu /home/ubuntu/cephadm
       args:
         chdir: /home/ubuntu
     - name: Run cephadm add-repo
