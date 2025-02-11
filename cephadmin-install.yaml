@@ -2,7 +2,7 @@
   hosts: all
   become: true
   tasks:
-     - name: Set +x
+    - name: Set +x
        ansible.builtin.command: chmod +x /home/ubuntu/cephadm
        args:
         chdir: /home/ubuntu
