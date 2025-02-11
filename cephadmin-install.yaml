@@ -2,8 +2,6 @@
   hosts: all
   become: true
   tasks:
-    - name: Download cephadm 18.2.4 using wget
-      ansible.builtin.command: wget --no-check-certificate -O /home/ubuntu/cephadm https://download.ceph.com/rpm-18.2.4/el9/noarch/cephadm
     - name: Run cephadm add-repo
       ansible.builtin.command: ./cephadm add-repo --release reef
       args:
