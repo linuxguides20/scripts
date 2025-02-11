@@ -1,0 +1,9 @@
+- name: Update hostname in /etc/hosts
+  hosts: all
+  become: yes
+  tasks:
+    - name: Replace hcm01 with hcm02 for specific line
+      lineinfile:
+        path: /etc/hosts
+        regexp: '^127\.0\.1\.1\s+hcm01'
+        line: '127.0.1.1 hcm02-rbd-ssd01.fpt.net'
