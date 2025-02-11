@@ -2,6 +2,10 @@
   hosts: all
   become: true
   tasks:
+    - name: Set owner
+      ansible.builtin.command: chown ubuntu:ubuntu /home/ubunt/cephadm
+      args:
+        chdir: /home/ubuntu
     - name: Run cephadm add-repo
       ansible.builtin.command: ./cephadm add-repo --release reef
       args:
