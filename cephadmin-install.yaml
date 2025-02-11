@@ -2,6 +2,10 @@
   hosts: all
   become: true
   tasks:
+     - name: Set +x
+      ansible.builtin.command: chmod+x /home/ubuntu/cephadm
+      args:
+        chdir: /home/ubuntu
     - name: Set owner
       ansible.builtin.command: chown ubuntu:ubuntu /home/ubuntu/cephadm
       args:
