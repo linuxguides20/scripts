@@ -1,0 +1,20 @@
+- name: Add source to trusted zone and remove source internal zone firewalld
+  hosts: all
+  become: true
+  tasks:
+    - name: Delete source internal zone
+      ansible.posix.firewalld:
+        source: 172.240.10.0/24
+        permanent: true
+        zone: internal
+        state: disabled
+    - name: Add source to trusted zone
+      ansible.posix.firewalld:
+        source: 172.240.10.0/24
+        permanent: true
+        zone: trusted
+        state: enabled
+    - name: Always reload firewalld
+      ansible.builtin.service:
+        name: firewalld
+        state: reloaded
