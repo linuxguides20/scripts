@@ -1,0 +1,28 @@
+- name: Configure Docker with HTTP Proxy
+  hosts: all
+  become: yes
+  tasks:
+    - name: Ensure docker.service.d directory exists
+      file:
+        path: /etc/systemd/system/docker.service.d
+        state: directory
+        mode: '0755'
+
+    - name: Create or update HTTP proxy configuration for Docker
+      copy:
+        dest: /etc/systemd/system/docker.service.d/http-proxy.conf
+        content: |
+          [Service]
+          Environment="HTTP_PROXY=http://172.240.10.10:80"
+          Environment="HTTPS_PROXY=http://172.240.10.10:80"
+          Environment="NO_PROXY=localhost,127.0.0.1"
+        mode: '0644'
+
+    - name: Reload systemd daemon
+      systemd:
+        daemon_reload: yes
+
+    - name: Restart Docker service
+      systemd:
+        name: docker
+        state: restarted
