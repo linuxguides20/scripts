@@ -1,0 +1,8 @@
+- name: Install ceph-common package
+  hosts: all
+  become: yes
+  tasks:
+    - name: Ensure ceph-common is installed
+      package:
+        name: ceph-common
+        state: present
