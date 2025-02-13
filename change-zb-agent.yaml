@@ -1,0 +1,18 @@
+- name: Update Zabbix Agent Configuration
+  hosts: all
+  become: yes
+  tasks:
+    - name: Update Server and ServerActive in zabbix_agentd.conf
+      ansible.builtin.lineinfile:
+        path: /etc/zabbix/zabbix_agentd.conf
+        regexp: '^{{ item.key }}='
+        line: '{{ item.key }}=172.240.10.10'
+        backrefs: yes
+      loop:
+        - { key: 'Server' }
+        - { key: 'ServerActive' }
+
+    - name: Restart Zabbix Agent
+      ansible.builtin.service:
+        name: zabbix-agent
+        state: restarted
