@@ -1,0 +1,19 @@
+- name: Install Cephadm
+  hosts: all
+  become: yes
+  tasks:
+    - name: Download Cephadm
+      ansible.builtin.get_url:
+        url: "https://download.ceph.com/rpm-18.2.4/el9/noarch/cephadm"
+        dest: "/usr/local/bin/cephadm"
+        mode: '0755'
+
+    - name: Add Ceph repository
+      ansible.builtin.command:
+        cmd: "/usr/local/bin/cephadm add-repo --release reef"
+      args:
+        creates: "/etc/yum.repos.d/ceph.repo"
+
+    - name: Install Ceph packages
+      ansible.builtin.command:
+        cmd: "/usr/local/bin/cephadm install"
